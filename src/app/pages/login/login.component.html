@@ -1,0 +1,21 @@
+<form #formLogin="ngForm" (ngSubmit)="sendData(formLogin)">
+  <span>Login</span> <br><br>
+
+  <label for="email">Email: </label>
+  <span class="spanValidacion" *ngIf="formLogin.submitted && formLogin.controls['email'].errors">Introduzca un email válido</span>
+  <input id="email" name="email" class="email" type="email" placeholder="Email" [(ngModel)]="user.email" required/>
+
+  <label for="password">Contraseña: </label>
+  <span class="spanValidacion" *ngIf="formLogin.submitted && formLogin.controls['password'].errors">Introduzca un clave válido</span>
+  <input id="password" name="password" type="password" class="password" placeholder="Password" [(ngModel)]="user.password" required/>
+
+  <label>
+    <input id="RecordarUsuario" name="RecordarUsuario" type="RecordarUsuario" class="RecordarUsuario" type="checkbox" />
+    Recordar mi usuario
+  </label>
+
+  <a routerLink="/sign-in" >¿No tienes cuenta?</a>
+
+  <button class="ingresarbtn">Ingresar</button>
+  <button type="reset" class="cancelarbtn">Cancelar</button>
+</form>
